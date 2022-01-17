@@ -1,4 +1,4 @@
-import shoppingCart from "../assets/shopping-cart.svg";
+import shoppingCart from "../assets/shoppingCart.svg";
 
 const Header = () => {
     return (
