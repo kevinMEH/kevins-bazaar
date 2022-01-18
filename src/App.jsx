@@ -1,12 +1,14 @@
-
+import Home from "./Home/Home";
 
 function App() {
 
-  return (
-    <div>
-        
-    </div>
-  )
+	return (
+		<>
+			<Home />
+		</>
+	);
 }
 
-export default App
+
+
+export default App;
