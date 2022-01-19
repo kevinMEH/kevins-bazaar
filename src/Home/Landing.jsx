@@ -3,7 +3,7 @@ import landing from "../assets/landing.jpeg";
 const Landing = () => {
     return (
         <div className="space-y-9">
-            <img className="rounded-xl h-64 w-full object-cover" src={landing} />
+            <img className="rounded-xl h-56 w-full object-cover" src={landing} />
 
             <div className="space-y-4">
                 <h1 className="font-serif text-darkGray text-4xl font-bold text-center">

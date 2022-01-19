@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
 	return (
-		<div className="p-6 space-y-[6.5rem]">
+		<div className="p-6 space-y-24">
 			<Header />
 			<Landing />
             <Products />
