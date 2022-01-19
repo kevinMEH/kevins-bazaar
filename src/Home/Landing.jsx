@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import landing from "../assets/landing.jpeg";
 
 const Landing = () => {
@@ -11,11 +13,12 @@ const Landing = () => {
                 </h1>
                 <p className="text-medGray text-lg text-center">At Kevin's Bazaar, we provide our customers with premium, custom made furnishing for their homes.</p>
                 <div className="flex justify-center pt-1">
-                    <a // TODO: ROUTE TO CATALOG
+                    <Link
+                        to="catalog"
                         className="px-8 py-3.5 rounded-lg inline-block 
                         bg-green text-background font-medium">
                         Shop Now
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
