@@ -8,14 +8,16 @@ import Catalog from "./Catalog/Catalog";
 
 const App = () => {
     return (
+        <div className="p-6 space-y-24">
+            <Header />
             <Routes>
                 <Route path="/" element={ <Home/> } />
                 <Route path="catalog" element={ <Catalog/> } />
                 {/* <Route path="*" element={} */}
             </Routes>
+            <Footer />
+        </div>
     )
 }
-
-
 
 export default App;
