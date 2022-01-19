@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import shoppingCart from "../assets/shoppingCart.svg";
 
 const Header = () => {
     return (
         <nav className="flex justify-between">
-            <a>
+            <Link to="/">
                 <h1 className="font-serif text-xl w-20 leading-none font-bold text-lightGray">Kevin's Bazaar</h1>
-            </a>
-            <a className="flex items-center">
+            </Link>
+            <Link to="cart" className="flex items-center">
                 <img src={shoppingCart} className="fill-lightGray h-7" alt="Shopping Cart"/>
-            </a>
+            </Link>
         </nav>
     )
 }
