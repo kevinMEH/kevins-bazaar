@@ -15,7 +15,7 @@ module.exports = {
                 darkGray: "#444340",
                 black: "#181818",
                 green: "#97AA6E",
-                overlay: "#5F5F5D66"
+                overlay: "#5F5F5D77"
             },
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
