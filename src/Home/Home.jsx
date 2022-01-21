@@ -3,10 +3,10 @@ import Products from "./Products";
 
 const Home = () => {
 	return (
-        <>
+        <div className="space-y-24">
 			<Landing />
             <Products />
-        </>
+        </div>
 	);
 };
 
