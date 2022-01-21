@@ -8,7 +8,7 @@ import Catalog from "./Catalog/Catalog";
 
 const App = () => {
     return (
-        <div className="p-6 space-y-24">
+        <div className="p-6">
             <Header />
             <Routes>
                 <Route path="/" element={ <Home/> } />

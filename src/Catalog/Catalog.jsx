@@ -69,7 +69,7 @@ const Catalog = () => {
     
     if(loaded && !error) {
         return (
-            <div>
+            <div className="space-y-8 pt-12 pb-20">
                 <Products products={products} />
             </div>
         )
