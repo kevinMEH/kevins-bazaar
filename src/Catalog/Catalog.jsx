@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Products from "./Products";
+import Search from "./Search";
 
 const Catalog = () => {
     const [trueProducts, setTrueProducts] = useState(null); // All products
@@ -70,6 +71,7 @@ const Catalog = () => {
     if(loaded && !error) {
         return (
             <div className="space-y-8 pt-12 pb-20">
+                <Search trueProducts={trueProducts} setProducts={setProducts} />
                 <Products products={products} />
             </div>
         )
@@ -82,9 +84,7 @@ const Catalog = () => {
         )
     } else {
         return (
-            // TODO: Style lol
             <>
-                <div>Loading...</div>
             </>
         )
     }
