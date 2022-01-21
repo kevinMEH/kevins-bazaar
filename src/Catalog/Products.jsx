@@ -28,7 +28,7 @@ const Card = ({ title, thumbnail, price, url }) => {
                 </div>
                 {/* TODO: Add to cart */}
                 <div className="flex">
-                    <img src={shoppingBag} className="h-7 mt-1" />
+                    <img src={shoppingBag} className="h-7 mt-1 pr-1" />
                 </div>
             </div>
         </Link>
