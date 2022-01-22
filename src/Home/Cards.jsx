@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { isMobile, BrowserView } from "react-device-detect";
 
 import couchAndPillows from "../assets/couchAndPillows.jpeg";
@@ -32,13 +34,13 @@ const Card = ({ image, alt, url, end = false }) => {
     if(end) {
         return (
             // TODO: <Link /> TO CATALOG
-            <a href={url} className="block relative rounded-xl overflow-hidden">
+            <Link to={"catalog"} className="block relative rounded-xl overflow-hidden">
                 <img className="object-cover h-52 w-full" src={image} alt={alt} />
                 <div className="absolute bg-overlay top-0 left-0 right-0 bottom-0" />
                 <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-center">
                     <h3 className="text-3xl text-background font-semibold">View More<img src={arrow} className="inline h-10 -translate-y-0.5" /></h3>
                 </div>
-            </a>
+            </Link>
         )
     } else {
         return (
