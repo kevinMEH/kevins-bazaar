@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 
 import Home from "./Home/Home";
 import Catalog from "./Catalog/Catalog";
+import ProductPage from "./ProductPage/ProductPage";
 import Error from "./Error/Error";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={ <Home/> } />
                 <Route path="catalog" element={ <Catalog/> } />
+                <Route path="catalog/:productURL" element={<ProductPage />} />
                 <Route path="*" element={ <Error /> } />
             </Routes>
             <Footer />
