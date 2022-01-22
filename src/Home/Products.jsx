@@ -3,7 +3,7 @@ import { isMobile, BrowserView } from "react-device-detect";
 import couchAndPillows from "../assets/couchAndPillows.jpeg";
 import girlJumpCouch from "../assets/girlJumpCouch.jpeg";
 import chairsAndTable from "../assets/chairsAndTable.jpeg";
-import arrow from "../assets/arrowRight.svg";
+import arrow from "../assets/chevronRight.svg";
 
 // TODO: href ROUTE TO CATALOG
 let catalogURL;
