@@ -9,7 +9,7 @@ import Error from "./Error/Error";
 
 const App = () => {
     return (
-        <div className="p-6">
+        <div className="p-6 min-h-screen flex flex-col justify-between">
             <Header />
             <Routes>
                 <Route path="/" element={ <Home/> } />
