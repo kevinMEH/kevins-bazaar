@@ -20,7 +20,7 @@ const ProductPage = () => {
     }, [])
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 pt-20 pb-32">
             <Link to={"../catalog"} className="flex text-lightGray font-medium text-lg">
                 <div className="flex mx-auto space-x-1">
                     <img src={arrow} className="" />
