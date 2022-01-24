@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import shoppingBag from "../assets/shoppingBag.svg";
 
-const Products = ({ products }) => {
+const Products = ({ filteredProducts: products }) => {
     
     let cards = [];
     
@@ -21,7 +21,7 @@ const Card = ({ product }) => {
     const navigate = useNavigate();
     
     function navigateToProductPage() {
-        navigate(product.url, {state: {product: product}})
+        navigate(product.url, {state: {product}})
     }
     
     return (

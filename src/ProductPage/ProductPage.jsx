@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import arrow from "../assets/arrowLeft.svg";
 import shoppingBag from "../assets/shoppingBagWhite.svg";
 
+import { getFullProduct } from "../Data";
+
 const ProductPage = () => {
     const location = useLocation();
     const product = location.state.product;
@@ -14,8 +16,9 @@ const ProductPage = () => {
     
     useEffect(() => {
         // TODO: Pull data from API
-        
-        setFullProduct({desc: "Drawers and side tables made from premium walnut wood, available in an assortment of shapes and sizes. Whether it's for your front porch or your study, these drawers will stand the test of time.", ...product});
+        let { error, fullProduct } = getFullProduct();
+        if(error) setError(error);
+        setFullProduct(fullProduct);
         setLoaded(true);
     }, [])
 

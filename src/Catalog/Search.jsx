@@ -3,7 +3,7 @@ import { useState } from "react";
 import menu from "../assets/menu.svg";
 import searchIcon from "../assets/search.svg";
 
-const Search = ({ trueProducts, setProducts }) => {
+const Search = ({ trueProducts, setFilteredProducts }) => {
      
     const [search, setSearch] = useState("");
     const [timeoutID, setTimeoutID] = useState(null);
@@ -16,7 +16,8 @@ const Search = ({ trueProducts, setProducts }) => {
     
     function filterProducts(name) {
         // Add fuzzy searching?
-        setProducts(trueProducts.filter(product => product.name.toLowerCase().includes(name.toLowerCase()) ));
+        // TODO: Fetch!
+        setFilteredProducts(trueProducts.filter(product => product.name.toLowerCase().includes(name.toLowerCase()) ));
     }
 
     return (
