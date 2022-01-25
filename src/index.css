@@ -5,3 +5,8 @@
 body {
     @apply bg-background;
 }
+
+/* Gotta put it here to prevent flickering. I'm a perfectionist! */
+.landingImage {
+    background: url("assets/landing.jpeg") center / cover;
+}
