@@ -4,7 +4,7 @@ const Error = () => {
     let navigate = useNavigate();
 
     return (
-        <div className="py-24">
+        <div className="my-auto">
             <h1 className="text-lightGray text-lg text-center font-semibold tracking-wider">ERROR:</h1>
             <h2 className="text-medGray text-3xl font-bold text-center">Page not found!</h2>
             <div className="flex justify-center">

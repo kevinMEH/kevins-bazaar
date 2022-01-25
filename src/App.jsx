@@ -52,8 +52,9 @@ const App = () => {
     }, [cart]);
 
     return (
-        <div className="p-6 min-h-screen flex flex-col justify-between">
+        <div className="p-6 min-h-screen flex flex-col">
             <Header />
+            <div className="flex-1 flex flex-col">
                 <Routes>
                     <Route path="/" element={ <Home /> } />
                     <Route path="catalog" element={ <Catalog addToCart={addToCart} inCart={inCart} /> } />
@@ -61,6 +62,7 @@ const App = () => {
                     <Route path="cart" element={ <Cart cart={cart} removeFromCart={removeFromCart} /> } />
                     <Route path="*" element={ <Error /> } />
                 </Routes>
+            </div>
             <Footer />
         </div>
     )
