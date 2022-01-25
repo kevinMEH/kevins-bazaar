@@ -5,7 +5,8 @@ import Search from "./Search";
 
 import { getProducts } from "../Data";
 
-const Catalog = () => {
+const Catalog = ({ addToCart, inCart }) => {
+    // TODO: Implement fetch and we don't need trueProducts and filteredProducts anymore
     const [trueProducts, setTrueProducts] = useState(null); // All products
     const [filteredProducts, setFilteredProducts] = useState(null); // Filtered products
     const [loaded, setLoaded] = useState(false);
@@ -30,14 +31,13 @@ const Catalog = () => {
         setLoaded(true);
         setTrueProducts(productsWrapper.products);
         setFilteredProducts(productsWrapper.products);
-        
     }, []);
     
     if(loaded && !error) {
         return (
             <div className="space-y-8 pt-12 pb-20">
                 <Search trueProducts={trueProducts} setFilteredProducts={setFilteredProducts} />
-                <Products filteredProducts={filteredProducts} />
+                <Products products={filteredProducts} addToCart={addToCart} inCart={inCart} />
             </div>
         )
     } else if(error) {
