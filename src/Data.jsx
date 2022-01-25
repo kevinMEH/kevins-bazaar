@@ -53,4 +53,9 @@ function getFullProduct(product) {
     return {error, fullProduct};
 }
 
-export { getProducts, getFullProduct };
+function validProduct(product) {
+    // Is product in database?
+    return true;
+}
+
+export { getProducts, getFullProduct, validProduct };
