@@ -37,8 +37,9 @@ const Card = ({ image, alt, url, end = false }) => {
             <Link to={"catalog"} className="block relative rounded-xl overflow-hidden">
                 <img className="object-cover h-52 w-full" src={image} alt={alt} />
                 <div className="absolute bg-overlay top-0 left-0 right-0 bottom-0" />
-                <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-center">
-                    <h3 className="text-3xl text-background font-semibold">View More<img src={arrow} className="inline h-10 -translate-y-0.5" /></h3>
+                <div className="absolute top-1/2 -translate-y-1/2 w-full flex items-center justify-center">
+                        <p className="text-2xl text-background font-semibold tracking-wide">View More</p>
+                        <img src={arrow} className="inline h-8" />
                 </div>
             </Link>
         )

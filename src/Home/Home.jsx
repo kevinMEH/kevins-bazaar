@@ -3,7 +3,7 @@ import Cards from "./Cards";
 
 const Home = () => {
 	return (
-        <div className="space-y-24 py-24">
+        <div className="space-y-24 pt-24 pb-32">
 			<Landing />
             <Cards />
         </div>
