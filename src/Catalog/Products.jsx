@@ -24,7 +24,7 @@ const Card = ({ product, addToCart, inCart }) => {
     const navigate = useNavigate();
     
     useLayoutEffect(() => {
-        setProductInCart(inCart(product));
+        setProductInCart(inCart(product.url));
     }, [])
     
     function navigateToProductPage() {
@@ -35,7 +35,7 @@ const Card = ({ product, addToCart, inCart }) => {
         event.stopPropagation();
         if(!productInCart) {
             setProductInCart(true);
-            addToCart(product);
+            addToCart(product.url);
         }
     }
     
