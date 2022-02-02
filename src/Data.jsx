@@ -54,9 +54,12 @@ function getFullProduct(productURL) {
     return {error, fullProduct};
 }
 
-function validProduct(product) {
-    // Is product in database?
-    return true;
+function validProduct(productURL) {
+    for(let product of productsWrapper.products) {
+        if(product.url === productURL)
+            return true;
+    }
+    return false;
 }
 
 export { getPage, getFullProduct, validProduct };
