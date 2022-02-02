@@ -16,35 +16,30 @@ import { validProduct } from "./Data";
 const App = () => {
     const [ cart, setCart ] = useState(null);
     
-    function addToCart(product) {
-        if(validProduct(product)) setCart([...cart, product]);
+    function addToCart(productURL) {
+        if(validProduct(productURL)) setCart([...cart, productURL]);
     }
     
-    function removeFromCart(product) {
-        if(inCart(product)) {
+    function removeFromCart(productURL) {
+        if(inCart(productURL)) {
             let newCart = [...cart];
-            newCart.splice(newCart.findIndex(item => item.url === product.url), 1)
+            newCart.splice(newCart.indexOf(productURL), 1)
             setCart(newCart);
         }
     }
     
     useEffect(() => {
-        console.log("usedEffect");
         let localCart = localStorage.getItem("cart");
         let parsedCart = JSON.parse(localCart); // cart: Array<Product>
         if(parsedCart) {
-            parsedCart = parsedCart.filter(product => validProduct(product));
+            parsedCart = parsedCart.filter(productURL => validProduct(productURL));
             setCart(parsedCart);
         } else setCart([]);
     }, []);
 
         
-    function inCart(product) {
-        // .includes() does not work, so matching URL
-        for(let item of cart) {
-            if(item.url === product.url) return true;
-        }
-        return false;
+    function inCart(productURL) {
+        return cart.indexOf(productURL) != -1;
     }
     
     useEffect(() => {
