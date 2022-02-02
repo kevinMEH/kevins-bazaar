@@ -46,6 +46,15 @@ function getPage(page, filter) {
     return {error, productsWrapper };
 }
 
+function getProduct(productURL) {
+    return new Promise((resolve, reject) => {
+        for(let product of productsWrapper.products) {
+            if(product.url === productURL) resolve(product);
+        }
+        reject("Product " + productURL + " does not exist.");
+    });
+}
+
 function getFullProduct(productURL) {
     let error;
     let product = productsWrapper.products.filter(product => product.url === productURL)[0];
@@ -62,4 +71,4 @@ function validProduct(productURL) {
     return false;
 }
 
-export { getPage, getFullProduct, validProduct };
+export { getPage, getFullProduct, validProduct, getProduct };
