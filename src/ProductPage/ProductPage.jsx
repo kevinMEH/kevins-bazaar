@@ -40,7 +40,7 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
     }
 
     return ( <>
-        {error ? <Error /> : <>
+        {error ? <Error message="Product not found!" /> : <>
             <div className="space-y-4 pt-14 pb-32">
                 <Link to={"../catalog"} className="flex text-lightGray font-medium text-lg">
                     <div className="flex mx-auto space-x-1">

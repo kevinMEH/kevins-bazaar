@@ -55,7 +55,7 @@ const App = () => {
                     <Route path="catalog" element={ <Catalog addToCart={addToCart} inCart={inCart} /> } />
                     <Route path="catalog/:productURL" element={<ProductPage addToCart={addToCart} inCart={inCart} cart={cart} />} />
                     <Route path="cart" element={ <Cart cart={cart} removeFromCart={removeFromCart} /> } />
-                    <Route path="*" element={ <Error /> } />
+                    <Route path="*" element={ <Error message="Page not found!" /> } />
                 </Routes>
             </div>
             <Footer />
