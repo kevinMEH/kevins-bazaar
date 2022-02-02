@@ -4,15 +4,21 @@ import { useNavigate } from "react-router-dom";
 import trash from "../assets/trash.svg";
 import arrowRight from "../assets/arrowRight.svg";
 
+import { getProduct } from "../Data";
+
 const Cart = ({ cart, removeFromCart }) => {
     const [items, setItems] = useState([]);
     
-    useEffect(() => {
+    useEffect(async () => {
         if(cart) {
             let tempItems = [];
-            for(let item of cart) {
-                tempItems.push(<Item product={item} removeFromCart={removeFromCart} key={item.url} />);
+            let promises = [];
+            for(let url of cart) {
+                promises.push(getProduct(url));
             }
+            await Promise.all(promises).then(products => products.forEach(product => {
+                tempItems.push(<Item product={product} removeFromCart={removeFromCart} key={product.url} />);
+            }))
             setItems(tempItems);
         }
     }, [cart])
@@ -37,7 +43,7 @@ const Item = ({ product, removeFromCart }) => {
 
     function handleRFC(event) {
         event.stopPropagation();
-        removeFromCart(product);
+        removeFromCart(product.url);
     }
 
     return (
