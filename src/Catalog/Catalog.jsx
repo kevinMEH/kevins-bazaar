@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Products from "./Products";
 import Search from "./Search";
 
-import { getProducts } from "../Data";
+import { getPage } from "../Data";
 
 const Catalog = ({ addToCart, inCart }) => {
     // TODO: Implement fetch and we don't need trueProducts and filteredProducts anymore
@@ -26,7 +26,7 @@ const Catalog = ({ addToCart, inCart }) => {
         //         setError(error);
         //     })
         
-        let {error, productsWrapper} = getProducts(1);
+        let {error, productsWrapper} = getPage(1);
         if(error) setError(error);
         setLoaded(true);
         setTrueProducts(productsWrapper.products);

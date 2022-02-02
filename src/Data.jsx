@@ -41,7 +41,7 @@ let productsWrapper = { products:
     ]
 };
 
-function getProducts(page, filter) {
+function getPage(page, filter) {
     let error = null;
     return {error, productsWrapper };
 }
@@ -59,4 +59,4 @@ function validProduct(product) {
     return true;
 }
 
-export { getProducts, getFullProduct, validProduct };
+export { getPage, getFullProduct, validProduct };
