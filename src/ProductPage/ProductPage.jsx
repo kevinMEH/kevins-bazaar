@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import arrow from "../assets/arrowLeft.svg";
 import shoppingBag from "../assets/shoppingBagWhite.svg";
@@ -10,6 +10,7 @@ import { getFullProduct } from "../Data";
 
 const ProductPage = ({ addToCart, inCart, cart }) => {
     const params = useParams();
+    let navigate = useNavigate();
     let productURL = params.productURL;
     
     const [fullProduct, setFullProduct] = useState(null);
@@ -42,12 +43,12 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
     return ( <>
         {error ? <Error message="Product not found!" /> : <>
             <div className="space-y-4 pt-14 pb-32">
-                <Link to={"../catalog"} className="flex text-lightGray font-medium text-lg">
+                <a onClick={() => navigate(-1)} className="flex text-lightGray font-medium text-lg">
                     <div className="flex mx-auto space-x-1">
                         <img src={arrow} className="" />
-                        <p>Catalog</p>
+                        <p>Back</p>
                     </div>
-                </Link>
+                </a>
                 
                 {loaded ? 
                 <>
