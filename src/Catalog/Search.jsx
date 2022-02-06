@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import menu from "../assets/menu.svg";
 import searchIcon from "../assets/search.svg";
@@ -31,6 +32,11 @@ const Search = ({ trueProducts, setFilteredProducts }) => {
             <img src={searchIcon} className="absolute right-3.5 top-2.5 bottom-2.5" />
         </div>
     )
+}
+
+Search.propTypes = {
+    trueProducts: PropTypes.array,
+    setFilteredProducts: PropTypes.func,
 }
 
 export default Search;

@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import arrow from "../assets/arrowLeft.svg";
 import shoppingBag from "../assets/shoppingBagWhite.svg";
@@ -78,6 +79,12 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
         </>
         }
     </>);
+}
+
+ProductPage.propTypes = {
+    addToCart: PropTypes.func,
+    inCart: PropTypes.func,
+    cart: PropTypes.array
 }
 
 export default ProductPage;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import trash from "../assets/trash.svg";
 import arrowRight from "../assets/arrowRight.svg";
@@ -34,6 +35,11 @@ const Cart = ({ cart, removeFromCart }) => {
     )
 }
 
+Cart.propTypes = {
+    cart: PropTypes.array,
+    removeFromCart: PropTypes.func
+}
+
 const Item = ({ product, removeFromCart }) => {
     const navigate = useNavigate();
 
@@ -61,6 +67,11 @@ const Item = ({ product, removeFromCart }) => {
             </div>
         </a>
     )
+}
+
+Item.propTypes = {
+    product: PropTypes.object,
+    removeFromCart: PropTypes.func
 }
 
 export default Cart;

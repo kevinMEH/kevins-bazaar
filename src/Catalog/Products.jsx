@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import shoppingBag from "../assets/shoppingBag.svg";
 import checkCircle from "../assets/checkCircle.svg";
 import { useLayoutEffect, useState } from "react";
+
 
 const Products = ({ products, addToCart, inCart }) => {
     
@@ -17,6 +19,12 @@ const Products = ({ products, addToCart, inCart }) => {
             { cards }
         </div>
     )
+}
+
+Products.propTypes = {
+    products: PropTypes.array,
+    addToCart: PropTypes.func,
+    inCart: PropTypes.func
 }
 
 const Card = ({ product, addToCart, inCart }) => {
@@ -58,5 +66,12 @@ const Card = ({ product, addToCart, inCart }) => {
         </a>
     )
 }
+
+Card.propTypes = {
+    product: PropTypes.object,
+    addToCart: PropTypes.func,
+    inCart: PropTypes.func
+}
+
 
 export default Products;

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { isMobile, BrowserView } from "react-device-detect";
 
@@ -51,6 +52,13 @@ const Card = ({ image, alt, url, end = false }) => {
             </a>
         )
     }
+}
+
+Card.propTypes = {
+    image: PropTypes.any,
+    alt: PropTypes.string,
+    url: PropTypes.string,
+    end: PropTypes.bool
 }
 
 export default Products;

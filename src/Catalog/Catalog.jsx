@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import Products from "./Products";
 import Search from "./Search";
@@ -13,24 +14,11 @@ const Catalog = ({ addToCart, inCart }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Mock pull data from API
-
-        // fetch("https://bazaar.liao.gg/api/products")
-        //     .then(response => response.json())
-        //     .then(result => {
-        //         setLoaded(true);
-        //         setTrueProducts(result);
-        //         setProducts(result);
-        //     }, error => {
-        //         setLoaded(true);
-        //         setError(error);
-        //     })
-        
-        let {error, productsWrapper} = getPage(1);
+        let { error, products } = getPage(1);
         if(error) setError(error);
         setLoaded(true);
-        setTrueProducts(productsWrapper.products);
-        setFilteredProducts(productsWrapper.products);
+        setTrueProducts(products);
+        setFilteredProducts(products);
     }, []);
     
     if(loaded && !error) {
@@ -53,6 +41,11 @@ const Catalog = ({ addToCart, inCart }) => {
             </>
         )
     }
+}
+
+Catalog.propTypes = {
+    addToCart: PropTypes.func,
+    inCart: PropTypes.func,
 }
 
 export default Catalog;

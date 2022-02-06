@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Error = ({ message }) => {
     let navigate = useNavigate();
@@ -14,6 +15,10 @@ const Error = ({ message }) => {
             </div>
         </div>
     )
+}
+
+Error.propTypes = {
+    message: PropTypes.node
 }
 
 export default Error;
