@@ -44,6 +44,8 @@ npm run dev
 
 ## Learn more
 
-[React JS](https://reactjs.org/)
+[React](https://reactjs.org/)
 
 [Tailwind CSS](https://tailwindcss.com/)
+
+Special thanks to all the creators on [Unsplash.](https://unsplash.com/) You can find the all images I used [here.](https://unsplash.com/collections/Cr22mDRzVRc/kevin's-bazaar)
