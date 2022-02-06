@@ -8,11 +8,8 @@ import girlJumpCouch from "../assets/girlJumpCouch.jpeg";
 import chairsAndTable from "../assets/chairsAndTable.jpeg";
 import arrow from "../assets/chevronRight.svg";
 
-// TODO: href ROUTE TO CATALOG
-let catalogURL;
 
 const Products = () => {
-    // TODO: INCLUDE UNSPLASH IN README
     return (
         <div>
             <h2 className="text-darkGray font-bold text-3xl text-center px-4 pb-5">Check out our newest releases.</h2>
@@ -31,27 +28,19 @@ const Products = () => {
     )
 }
 
-const Card = ({ image, alt, url, end = false }) => {
-    if(end) {
-        return (
-            // TODO: <Link /> TO CATALOG
-            <Link to={"catalog"} className="block relative rounded-xl overflow-hidden">
-                <img className="object-cover h-52 w-full" src={image} alt={alt} />
+const Card = ({ image, alt, end = false }) => {
+    return (
+        <Link to={"catalog"} className={ end ? "relative block rounded-xl overflow-hidden" : "block rounded-xl overflow-hidden" }>
+            <img className="object-cover h-52 w-full" src={image} alt={alt} />
+            { end ? <>
                 <div className="absolute bg-overlay top-0 left-0 right-0 bottom-0" />
                 <div className="absolute top-1/2 -translate-y-1/2 w-full flex items-center justify-center">
-                        <p className="text-2xl text-background font-semibold tracking-wide">View More</p>
-                        <img src={arrow} className="inline h-8" />
+                    <p className="text-2xl text-background font-semibold tracking-wide">View More</p>
+                    <img src={arrow} className="inline h-8" />
                 </div>
-            </Link>
-        )
-    } else {
-        return (
-            // TODO: <Link />
-            <a href={url} className="block rounded-xl overflow-hidden">
-                <img className="object-cover h-52 w-full" src={image} alt={alt} />
-            </a>
-        )
-    }
+            </> : <></> }
+        </Link>
+    )
 }
 
 Card.propTypes = {
