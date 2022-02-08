@@ -17,8 +17,14 @@ const Cart = ({ cart, removeFromCart }) => {
             for(let url of cart) {
                 promises.push(getProduct(url));
             }
-            await Promise.all(promises).then(products => products.forEach(product => {
-                tempItems.push(<Item product={product} removeFromCart={removeFromCart} key={product.url} />);
+            await Promise.all(promises).then(products => products.forEach(({ error, product, url }) => {
+                if(error) console.log("Error: " + error + " on product " + url);
+                else {
+                    if(!product) {
+                        console.log("Product does not exist: " + url);
+                        removeFromCart(url);
+                    } else tempItems.push(<Item product={product} removeFromCart={removeFromCart} key={product.url} />);
+                }
             }))
             setItems(tempItems);
         }
