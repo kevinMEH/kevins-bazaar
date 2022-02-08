@@ -11,13 +11,11 @@ import ProductPage from "./ProductPage/ProductPage";
 import Cart from "./Cart/Cart";
 import Error from "./Error/Error";
 
-import { validProduct } from "./Data";
-
 const App = () => {
     const [ cart, setCart ] = useState(null);
     
     function addToCart(productURL) {
-        if(validProduct(productURL)) setCart([...cart, productURL]);
+        setCart([...cart, productURL]);
     }
     
     function removeFromCart(productURL) {
@@ -28,19 +26,16 @@ const App = () => {
         }
     }
     
-    useEffect(() => {
-        let localCart = localStorage.getItem("cart");
-        let parsedCart = JSON.parse(localCart); // cart: Array<Product>
-        if(parsedCart) {
-            parsedCart = parsedCart.filter(productURL => validProduct(productURL));
-            setCart(parsedCart);
-        } else setCart([]);
-    }, []);
-
-        
     function inCart(productURL) {
         return cart.indexOf(productURL) != -1;
     }
+    
+    useEffect(() => {
+        let localCart = localStorage.getItem("cart");
+        let parsedCart = JSON.parse(localCart); // cart: Array<Product>
+        if(parsedCart) setCart(parsedCart);
+        else setCart([]);
+    }, []);
     
     useEffect(() => {
         if(cart) localStorage.setItem("cart", JSON.stringify(cart));
