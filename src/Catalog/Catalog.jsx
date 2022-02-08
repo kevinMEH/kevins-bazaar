@@ -5,40 +5,32 @@ import Products from "./Products";
 import Search from "./Search";
 
 import { getPage } from "../Data";
+import Error from "../Error/Error";
 
 const Catalog = ({ addToCart, inCart }) => {
-    // TODO: Implement fetch and we don't need trueProducts and filteredProducts anymore
-    const [trueProducts, setTrueProducts] = useState(null); // All products
-    const [filteredProducts, setFilteredProducts] = useState(null); // Filtered products
+    const [products, setProducts] = useState(null); // All products
+    const [filter, setFilter] = useState("");
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        let { error, products } = getPage(1);
+    useEffect(async () => {
+        // Add infinite scroll TODO: Append new products to products
+        let { error, products } = await getPage(1, filter);
         if(error) setError(error);
         setLoaded(true);
-        setTrueProducts(products);
-        setFilteredProducts(products);
-    }, []);
+        setProducts(products);
+    }, [filter]);
     
-    if(loaded && !error) {
-        return (
+    if(!loaded) return <></>
+    else {
+        if(error) return <Error message="Something went wrong..." />
+        else return (
+            
             <div className="space-y-8 pt-12 pb-20">
-                <Search trueProducts={trueProducts} setFilteredProducts={setFilteredProducts} />
-                <Products products={filteredProducts} addToCart={addToCart} inCart={inCart} />
+                <Search filter={filter} setFilter={setFilter} />
+                <Products products={products} addToCart={addToCart} inCart={inCart} />
             </div>
-        )
-    } else if(error) {
-        return (
-            // Perhaps try again?
-            <>
-                <div>Something went wrong...</div>
-            </>
-        )
-    } else {
-        return (
-            <>
-            </>
+            
         )
     }
 }

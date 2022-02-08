@@ -10,8 +10,10 @@ const Products = ({ products, addToCart, inCart }) => {
     
     let cards = [];
     
-    for(let product of products) {
-        cards.push(<Card product={product} addToCart={addToCart} inCart={inCart} key={product.url} />)
+    if(products) {
+        for(let product of products) {
+            cards.push(<Card product={product} addToCart={addToCart} inCart={inCart} key={product.url} />)
+        }
     }
     
     return (
