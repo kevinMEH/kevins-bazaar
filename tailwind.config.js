@@ -21,6 +21,10 @@ module.exports = {
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
                 serif: ["Eczar", ...defaultTheme.fontFamily.serif],
+            },
+            aspectRatio: {
+                "3/2": "3 / 2",
+                "3/4": "3 / 4",
             }
         },
 	},
