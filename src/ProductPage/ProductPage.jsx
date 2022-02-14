@@ -45,33 +45,37 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
         else if(!product) return <Error message="Product not found!" />
         else return (
             
-            <div className="space-y-4 pt-14 pb-32">
+            <div className="space-y-4 md:space-y-6 pt-14 pb-32">
                 <a onClick={() => navigate(-1)} className="flex text-lightGray font-medium text-lg">
                     <div className="flex mx-auto space-x-1">
-                        <img src={arrow} className="" />
+                        <img src={arrow} />
                         <p>Back</p>
                     </div>
                 </a>
                 
-                <img src={product.thumbnail} className="rounded-xl h-56 w-full object-cover" />
-                
-                <h1 className="font-semibold text-darkGray text-2xl pt-3">{product.name}</h1>
-            
-                <div className="space-y-0.5">
-                    <h2 className="text-darkGray text-lg font-medium">Description</h2>
-                    <p className="text-medGray leading-snug">{product.desc}</p>
-                </div>
-            
-                <div className="flex space-x-12 items-center py-2">
-                    <button onClick={handleATC} className="px-5 py-3.5 bg-green text-background rounded-lg font-medium flex space-x-2 items-center">
-                        {productInCart ? 
-                            <> <img src={check} className="inline h-5" />
-                            <p>Item In Cart</p> </>
-                        :   <> <img src={shoppingBag} className="inline h-5" />
-                            <p>Add To Cart</p> </>
-                        }
-                    </button>
-                    <p className="text-xl text-medGray">{product.price}</p>
+                <div className="space-y-4 md:space-y-6">
+                    <img src={product.thumbnail} className="rounded-xl h-auto aspect-3/2 w-full object-cover" />
+                    
+                    <div className="space-y-4">
+                        <h1 className="font-semibold text-darkGray text-2xl md:text-3xl pt-3">{product.name}</h1>
+                    
+                        <div className="space-y-0.5 md:space-y-2">
+                            <h2 className="text-darkGray text-lg md:text-xl font-medium">Description</h2>
+                            <p className="text-medGray leading-snug md:text-lg">{product.desc}</p>
+                        </div>
+                    
+                        <div className="flex space-x-12 md:space-x-20 items-center py-2">
+                            <button onClick={handleATC} className="px-5 py-3.5 bg-green text-background rounded-lg font-medium md:text-lg flex space-x-2 md:space-x-3 items-center">
+                                {productInCart ? 
+                                    <> <img src={check} className="inline h-5 md:h-6" />
+                                    <p>Item In Cart</p> </>
+                                :   <> <img src={shoppingBag} className="inline h-5 md:h-6" />
+                                    <p>Add To Cart</p> </>
+                                }
+                            </button>
+                            <p className="text-xl text-medGray">{product.price}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
