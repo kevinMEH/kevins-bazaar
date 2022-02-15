@@ -46,12 +46,12 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
         else return (
             
             <div className="space-y-4 md:space-y-6 pt-14 pb-32">
-                <a onClick={() => navigate(-1)} className="flex text-lightGray font-medium text-lg">
-                    <div className="flex mx-auto space-x-1">
+                <div className="flex text-lightGray font-medium text-lg">
+                    <a onClick={() => navigate(-1)} className="flex mx-auto space-x-1 cursor-pointer select-none">
                         <img src={arrow} />
-                        <p>Back</p>
-                    </div>
-                </a>
+                        <div>Back</div>
+                    </a>
+                </div>
                 
                 <div className="space-y-4 md:space-y-6">
                     <img src={product.thumbnail} className="rounded-xl h-auto aspect-3/2 w-full object-cover" />
