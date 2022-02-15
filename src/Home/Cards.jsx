@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { isMobile } from "react-device-detect";
-
 import couchAndPillows from "../assets/couchAndPillows.jpeg";
 import girlJumpCouch from "../assets/girlJumpCouch.jpeg";
 import chairsAndTable from "../assets/chairsAndTable.jpeg";
@@ -16,12 +14,7 @@ const Products = () => {
             <div className="space-y-7 md:space-y-10">
                 <Card image={couchAndPillows} alt={"Gray couch and brown pillows"} />
                 <Card image={girlJumpCouch} alt={"Girl jumping on gray couch"} />
-                <Card image={chairsAndTable} alt="Navy chairs and wood table on yellow and brown background" end={isMobile} />
-                { !isMobile ? <>
-                    <Card image={couchAndPillows} alt={"Couch and Pillows"} />
-                    <Card image={couchAndPillows} alt={"Couch and Pillows"} />
-                    <Card image={couchAndPillows} alt={"Couch and Pillows"} end={true} />
-                </> : <></> }
+                <Card image={chairsAndTable} alt="Navy chairs and wood table on yellow and brown background" end={true} />
             </div>
         </div>
     )
