@@ -3,12 +3,12 @@ import shoppingCart from "../assets/shoppingCart.svg";
 
 const Header = () => {
     return (
-        <nav className="flex justify-between">
+        <nav className="flex justify-between select-none">
             <Link to="/">
-                <h1 className="font-serif text-xl w-20 leading-none font-bold text-lightGray">Kevin's Bazaar</h1>
+                <h1 className="font-serif text-xl lg:text-2xl w-20 leading-none lg:leading-6 font-bold text-lightGray">Kevin's Bazaar</h1>
             </Link>
             <Link to="cart" className="flex items-center">
-                <img src={shoppingCart} className="h-7" alt="Shopping Cart"/>
+                <img src={shoppingCart} className="h-7 lg:h-8" alt="Shopping Cart"/>
             </Link>
         </nav>
     )

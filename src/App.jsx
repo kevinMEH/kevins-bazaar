@@ -42,7 +42,7 @@ const App = () => {
     }, [cart]);
 
     return (
-        <div className="p-6 md:px-14 md:py-10 min-h-screen flex flex-col">
+        <div className="p-6 md:px-14 md:py-10 lg:py-12 min-h-screen flex flex-col lg:max-w-5xl lg:mx-auto">
             <Header />
             <div className="flex-1 flex flex-col">
                 <Routes>
