@@ -42,9 +42,8 @@ const App = () => {
     }, [cart]);
 
     return (
-        <div className="p-6 md:px-14 md:py-10 lg:py-12 min-h-screen flex items-center flex-col">
+        <div className="p-6 md:px-14 md:py-10 lg:py-12 min-h-screen flex items-center justify-between flex-col">
             <Header />
-            <div>
                 <Routes>
                     <Route path="/" element={ <Home /> } />
                     <Route path="catalog" element={ <Catalog addToCart={addToCart} inCart={inCart} /> } />
@@ -52,7 +51,6 @@ const App = () => {
                     <Route path="cart" element={ <Cart cart={cart} removeFromCart={removeFromCart} /> } />
                     <Route path="*" element={ <Error message="Page not found!" /> } />
                 </Routes>
-            </div>
             <Footer />
         </div>
     )
