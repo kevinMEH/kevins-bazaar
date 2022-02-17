@@ -10,7 +10,7 @@ module.exports = {
             colors: {
                 background: "#F0EFE8",
                 secondary: "#E6E5DB",
-                hover: "#A6A39B14",
+                hover: "#A6A39B12",
                 lightGray: "#A6A39B",
                 medGray: "#63625F",
                 darkGray: "#444340",
