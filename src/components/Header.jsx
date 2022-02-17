@@ -3,7 +3,7 @@ import shoppingCart from "../assets/shoppingCart.svg";
 
 const Header = () => {
     return (
-        <nav className="flex justify-between select-none">
+        <nav className="flex justify-between select-none max-w-7xl w-full">
             <Link to="/">
                 <h1 className="font-serif text-xl lg:text-2xl w-20 leading-none lg:leading-6 font-bold text-lightGray">Kevin's Bazaar</h1>
             </Link>

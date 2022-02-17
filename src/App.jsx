@@ -42,9 +42,9 @@ const App = () => {
     }, [cart]);
 
     return (
-        <div className="p-6 md:px-14 md:py-10 lg:py-12 min-h-screen flex flex-col lg:max-w-5xl lg:mx-auto">
+        <div className="p-6 md:px-14 md:py-10 lg:py-12 min-h-screen flex items-center flex-col">
             <Header />
-            <div className="flex-1 flex flex-col">
+            <div>
                 <Routes>
                     <Route path="/" element={ <Home /> } />
                     <Route path="catalog" element={ <Catalog addToCart={addToCart} inCart={inCart} /> } />
