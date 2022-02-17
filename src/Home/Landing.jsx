@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Landing = () => {
     return (
         <div className="md:flex md:flex-row-reverse md:gap-8 md:items-center">
-            <div className="w-full h-auto md:max-w-sm">
+            <div className="w-full h-auto md:max-w-sm lg:max-w-md">
                 <div className="rounded-xl aspect-3/2 md:aspect-square landingImage" />
             </div>
 
