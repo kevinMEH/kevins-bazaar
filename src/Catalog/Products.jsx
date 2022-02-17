@@ -16,8 +16,10 @@ const Products = ({ products, addToCart, inCart }) => {
         }
     }
     
+    // TODO: Infinite scroll
+    
     return (
-        <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-3">
+        <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-x-8">
             { cards }
         </div>
     )
@@ -50,18 +52,18 @@ const Card = ({ product, addToCart, inCart }) => {
     }
     
     return (
-        <a onClick={navigateToProductPage} className="block md:col-span-1 md:hover:bg-hover -m-2.5 md:my-0 p-4 md:py-2 rounded-xl">
-            <img className="rounded-lg h-52 w-full object-cover" src={product.thumbnail} />
-            <div className="flex justify-between pt-3 px-1 pb-1">
-                <div className="text-medGray">
+        <a onClick={navigateToProductPage} className="block md:col-span-1 lg:hover:bg-hover -m-4 md:my-0 p-4 rounded-xl">
+            <img className="rounded-lg h-52 lg:h-60 w-full object-cover" src={product.thumbnail} />
+            <div className="flex justify-between pt-3 md:pt-4 px-1 pb-1 gap-4">
+                <div className="text-medGray md:space-y-1">
                     <h2 className="font-semibold text-lg md:text-xl leading-snug">{product.name}</h2>
-                    <p className="leading-relaxed md:text-lg">{product.price}</p>
+                    <p className="leading-relaxed md:text-lg lg:text-xl">{product.price}</p>
                 </div>
                 
                 <div onClick={handleATC} className="flex">
                     {productInCart ? 
-                        <img src={checkCircle} className="h-7 md:h-8 mt-1 pr-1 md:pr-0" />
-                    :   <img src={shoppingBag} className="h-7 md:h-8 mt-1 pr-1 md:pr-0" />
+                        <img src={checkCircle} className="h-7 md:h-8 lg:h-9 mt-1 pr-1 md:pr-0 cursor-pointer" />
+                    :   <img src={shoppingBag} className="h-7 md:h-8 lg:h-9 mt-1 pr-1 md:pr-0 cursor-pointer" />
                     }
                 </div>
             </div>

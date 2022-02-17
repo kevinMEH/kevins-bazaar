@@ -26,7 +26,7 @@ const Catalog = ({ addToCart, inCart }) => {
         if(error) return <Error message="Something went wrong..." />
         else return (
             
-            <div className="space-y-8 pt-12 pb-20">
+            <div className="space-y-8 pt-12 pb-20 lg:pt-20 lg:pb-32 w-full flex-1 lg:max-w-7xl">
                 <Search filter={filter} setFilter={setFilter} />
                 <Products products={products} addToCart={addToCart} inCart={inCart} />
             </div>

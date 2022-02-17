@@ -6,14 +6,14 @@ import searchIcon from "../assets/search.svg";
 const Search = ({ filter, setFilter }) => {
     
     return (
-        <div className="relative border-[1.75px] border-lightGray rounded-md mx-1">
-            <img src={menu} className="absolute left-3.5 top-2.5 bottom-2.5" />
+        <div className="relative border-[1.75px] border-lightGray rounded-md lg:rounded-lg mx-auto">
+            <img src={menu} className="absolute left-3.5 top-1/2 -translate-y-1/2 lg:h-7 lg:left-5" />
             <input type="text" value={filter} onChange={event => setFilter(event.target.value)} 
-                className="bg-transparent py-2.5 px-14 w-full
-                font-medium text-medGray rounded-[4.5px]
+                className="bg-transparent py-2.5 lg:py-3.5 px-14 lg:px-16 w-full
+                font-medium text-medGray rounded-[4.5px] lg:text-lg
                 focus:outline-none focus:ring-[1.75px] focus:ring-medGray"
             />
-            <img src={searchIcon} className="absolute right-3.5 top-2.5 bottom-2.5" />
+            <img src={searchIcon} className="absolute right-3.5 top-1/2 -translate-y-1/2 lg:h-7 lg:right-5" />
         </div>
     )
 }
