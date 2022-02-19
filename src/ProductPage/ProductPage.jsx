@@ -45,23 +45,25 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
         else if(!product) return <Error message="Product not found!" />
         else return (
             
-            <div className="space-y-4 md:space-y-6 pt-14 pb-32">
-                <div className="flex text-lightGray font-medium text-lg">
-                    <a onClick={() => navigate(-1)} className="flex mx-auto space-x-1 cursor-pointer select-none">
-                        <img src={arrow} />
+            <div className="space-y-4 md:space-y-6 pt-14 pb-32 max-w-7xl sm:m-8 md:m-0 ">
+                <div className="flex text-lightGray font-medium text-lg lg:text-xl lg:inline items-center">
+                    <a onClick={() => navigate(-1)} className="flex mx-auto space-x-1 cursor-pointer select-none lg:ml-4">
+                        <img src={arrow} className="lg:h-7" />
                         <div>Back</div>
                     </a>
                 </div>
                 
-                <div className="space-y-4 md:space-y-6">
-                    <img src={product.thumbnail} className="rounded-xl h-auto aspect-3/2 w-full object-cover" />
+                <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-8 lg:grid-cols-9 md:gap-12 lg:gap-16 md:items-center">
+                    <div className="md:col-span-4">
+                        <img src={product.thumbnail} className="rounded-xl aspect-3/2 md:aspect-4/3 w-full object-cover select-none" />
+                    </div>
                     
-                    <div className="space-y-4">
-                        <h1 className="font-semibold text-darkGray text-2xl md:text-3xl pt-3">{product.name}</h1>
+                    <div className="space-y-4 md:col-span-4 lg:col-span-5">
+                        <h1 className="font-semibold text-darkGray text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-3">{product.name}</h1>
                     
                         <div className="space-y-0.5 md:space-y-2">
-                            <h2 className="text-darkGray text-lg md:text-xl font-medium">Description</h2>
-                            <p className="text-medGray leading-snug md:text-lg">{product.desc}</p>
+                            <h2 className="text-darkGray text-lg md:text-xl lg:text-2xl font-medium">Description</h2>
+                            <p className="text-medGray leading-snug md:text-lg lg:mr-12">{product.desc}</p>
                         </div>
                     
                         <div className="flex space-x-12 md:space-x-20 items-center py-2">
