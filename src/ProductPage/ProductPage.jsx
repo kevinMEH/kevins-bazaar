@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import arrow from "../assets/arrowLeft.svg";
@@ -13,6 +13,7 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
     const params = useParams();
     let productURL = params.productURL;
     let navigate = useNavigate();
+    let location = useLocation();
     
     const [product, setProduct] = useState(null);
     const [loaded, setLoaded] = useState(false);
@@ -47,7 +48,7 @@ const ProductPage = ({ addToCart, inCart, cart }) => {
             
             <div className="space-y-4 md:space-y-6 pt-14 pb-32 max-w-7xl sm:m-8 md:m-0 ">
                 <div className="flex text-lightGray font-medium text-lg lg:text-xl lg:inline items-center">
-                    <a onClick={() => navigate(-1)} className="flex mx-auto space-x-1 cursor-pointer select-none lg:ml-4">
+                    <a onClick={ () => location.key !== "default" ? navigate(-1) : navigate("/catalog") } className="inline-flex mx-auto space-x-1 cursor-pointer select-none lg:ml-4">
                         <img src={arrow} className="lg:h-7" />
                         <div>Back</div>
                     </a>
