@@ -39,10 +39,6 @@ const Card = ({ product, addToCart, inCart }) => {
         setProductInCart(inCart(product.url));
     }, [])
     
-    function navigateToProductPage() {
-        navigate(product.url, {state: {product}})
-    }
-    
     function handleATC(event) {
         event.stopPropagation();
         if(!productInCart) {
@@ -52,7 +48,7 @@ const Card = ({ product, addToCart, inCart }) => {
     }
     
     return (
-        <a onClick={navigateToProductPage} className="block md:col-span-1 lg:hover:bg-hover -m-4 md:my-0 p-4 rounded-xl">
+        <a onClick={() => navigate(product.url)} className="block md:col-span-1 lg:hover:bg-hover -m-4 md:my-0 p-4 rounded-xl">
             <img className="rounded-lg h-52 lg:h-60 w-full object-cover" src={product.thumbnail} />
             <div className="flex justify-between pt-3 md:pt-4 px-1 pb-1 gap-4">
                 <div className="text-medGray md:space-y-1">
