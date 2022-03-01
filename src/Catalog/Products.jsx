@@ -1,12 +1,49 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import shoppingBag from "../assets/shoppingBag.svg";
 import checkCircle from "../assets/checkCircle.svg";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
+import { getPage } from "../Data";
 
-const Products = ({ products, addToCart, inCart }) => {
+const Products = ({ addToCart, inCart, setError, filter }) => {
+    
+    const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
+    
+    async function fetchProducts(reset = false) {
+        if(reset) { // Reset executes on filter change. Resets page number, hasMore and products.
+            setPage(2);
+            setHasMore(true);
+            let { error, products: fetchedProducts } = await getPage(1, filter);
+            if(error) {
+                setError(error);
+                return;
+            }
+            if(fetchedProducts.length < 6) setHasMore(false);
+            setProducts([...fetchedProducts]);
+        } else {
+            let { error, products: fetchedProducts } = await getPage(page, filter);
+            if(error) {
+                setError(error);
+                return;
+            }
+            setPage(page + 1);
+            if(fetchedProducts.length < 6) setHasMore(false);
+            setProducts([...products, ...fetchedProducts]);
+        }
+    }
+    
+    useEffect(async () => {
+        fetchProducts();
+    }, [])
+    
+    useEffect(() => { // Resets on filter change
+        fetchProducts(true);
+    }, [filter]);
     
     let cards = [];
     
@@ -16,19 +53,24 @@ const Products = ({ products, addToCart, inCart }) => {
         }
     }
     
-    // TODO: Infinite scroll
-    
     return (
-        <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-x-8">
+        <InfiniteScroll
+            dataLength = { cards.length }
+            next={ fetchProducts }
+            hasMore={ hasMore }
+            className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-x-8"
+            style={ {overflow: "visible" } }
+        >
             { cards }
-        </div>
+        </InfiniteScroll>
     )
 }
 
 Products.propTypes = {
-    products: PropTypes.array,
     addToCart: PropTypes.func,
-    inCart: PropTypes.func
+    inCart: PropTypes.func,
+    setError: PropTypes.func,
+    filter: PropTypes.string
 }
 
 const Card = ({ product, addToCart, inCart }) => {
