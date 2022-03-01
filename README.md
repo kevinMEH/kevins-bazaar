@@ -6,13 +6,16 @@ Kevin's Bazaar is a sample e-commerce website I created to practice and develop 
 
 Kevin's Bazaar is made using React JS and Tailwind CSS, and serves products via a REST API from an Express and MongoDB backend.
 
+[Visit Kevin's Bazaar Here.](https://bazaar.liao.gg)
+
 [You can view the backend part of the project here.](https://github.com/kevinMEH/kevins-bazaar-backend)
 
 ## Features
 
-- Responsive and fluid mobile and desktop support
+- Fluid and responsive mobile and desktop support
 - Pulls product information from REST API
-- Ability to filter products by name and description
+- Supports infinite scrolling
+- Filter products by name
 - Smooth routing and navigation between all pages
 
 ## Installation
