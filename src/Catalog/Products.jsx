@@ -17,7 +17,6 @@ const Products = ({ addToCart, inCart, setError, filter }) => {
     
     async function fetchProducts(reset = false) {
         if(reset) { // Reset executes on filter change. Resets page number, hasMore and products.
-            console.log("reset");
             setPage(2);
             setHasMore(true);
             let { error, products: fetchedProducts } = await getPage(1, filter);
