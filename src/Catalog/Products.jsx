@@ -4,18 +4,20 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import shoppingBag from "../assets/shoppingBag.svg";
 import checkCircle from "../assets/checkCircle.svg";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { getPage } from "../Data";
 
 const Products = ({ addToCart, inCart, setError, filter }) => {
     
+    const initRef = useRef(false);
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
     
     async function fetchProducts(reset = false) {
         if(reset) { // Reset executes on filter change. Resets page number, hasMore and products.
+            console.log("reset");
             setPage(2);
             setHasMore(true);
             let { error, products: fetchedProducts } = await getPage(1, filter);
@@ -38,11 +40,13 @@ const Products = ({ addToCart, inCart, setError, filter }) => {
     }
     
     useEffect(async () => {
-        fetchProducts();
+        await fetchProducts();
     }, [])
     
-    useEffect(() => { // Resets on filter change
-        fetchProducts(true);
+    useEffect(async () => { // Resets on filter change
+        // We must not execute this on init mount because it will compete with the useEffect above
+        if(initRef.current) await fetchProducts(true);
+        else initRef.current = true;
     }, [filter]);
     
     let cards = [];
